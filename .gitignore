@@ -1,0 +1,10 @@
+.env
+
+hackathon/migrations
+hackathon/submissions
+images
+
+*.pyc
+__pycache__/
+
+venv
