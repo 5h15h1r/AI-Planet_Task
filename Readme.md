@@ -26,12 +26,12 @@
 
 | Endpoints            | Request Type  | Parameters  |
 | -------------        |:-------------:| -----:      |
-| /api/v1/register     | POST          | username, email, paasword|
-| /api/v1/token        | POST          |   email,password         |
-| /api/v1/token/refresh| POST          |    refresh token         |
-| /api/v1/hackathons   | GET           |        NA                |
+| /api/v1/register     | POST          |username, email, paasword|
+| /api/v1/token        | POST          |email,password|
+| /api/v1/token/refresh| POST          |refresh token|
+| /api/v1/hackathons   | GET           |NA|
 | /api/v1/hackathons   | POST          |title,description,hackathonImage,typeofSubmission,start,end,reward|
 | /api/v1/enroll/<int:pk>|POST         |pk:primary key of hackathon|
-| /api/v1/enrolled     | GET           |        NA                |
-| /api/v1/submission/<int:pk>| POST    |name,summary,submission   |
-| /api/v1/getsubmission| GET           |        NA                |
+| /api/v1/enrolled     | GET           |NA|
+| /api/v1/submission/<int:pk>| POST    |name,summary,submission|
+| /api/v1/getsubmission| GET           |NA|
