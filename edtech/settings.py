@@ -29,8 +29,8 @@ SECRET_KEY = "django-insecure-deb*1&qqit1x+wdqn4pwv)s&yyeei+!pf_*z5axyik_8s^n_65
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 REST_USE_JWT = True
-ALLOWED_HOSTS = ["hackathon-app-ixqc.onrender.com"]
-LOGIN_REDIRECT_URL = 'http://localhost:8000/api/v1'
+ALLOWED_HOSTS = ["hackathon-app-ixqc.onrender.com","localhost"]
+LOGIN_REDIRECT_URL = 'http://localhost:8000/api/v1' # when on dev environment
 
 AUTH_USER_MODEL = "hackathon.User"
 # Application definition

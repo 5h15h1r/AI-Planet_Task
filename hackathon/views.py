@@ -5,6 +5,7 @@ from .models import Hackathon
 from rest_framework.views import APIView
 from .serializers import UserSerializer,HackathonSerializer, SubmissionSerializer, getHackathonSerializer
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
+from rest_framework.decorators import permission_classes
 
 
 
@@ -28,14 +29,15 @@ class Hackathons(APIView):
         serialzer = HackathonSerializer(hackathon,many=True)
         return Response(serialzer.data,status=status.HTTP_200_OK)
     
-    permission_classes = [IsAdminUser]
+    
     def post(self,request):
-        
+        if not request.user.is_staff:
+            return Response({"message":"You are not allowed to create Hackathon"}, status=status.HTTP_400_BAD_REQUEST)
         data = {
             "title": request.data.get('title'),
             "description": request.data.get('description'),
             "hackathonImage":request.data.get('hackathonImage'),
-            "typeof":request.data.get('typeof'),
+            "typeofSubmission":request.data.get('typeofSubmission'),
             "start":request.data.get('start'),
             "end":request.data.get('end'),
             "reward":request.data.get('reward'),
@@ -69,7 +71,7 @@ class submission(APIView):
     def post(self,request,pk):
         
         hackathon = Hackathon.objects.get(id=pk)   
-        Enrolledhackathon = Hackathon.objects.get(participants__id=request.user.id,id=pk)# enrolled hackathons
+        Enrolledhackathon = Hackathon.objects.get(participants__id=request.user.id,id=pk)
         if Enrolledhackathon is None:
             return Response(status=status.HTTP_400_BAD_REQUEST)
         
