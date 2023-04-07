@@ -25,7 +25,7 @@
 3. /api/v1/token/refresh /
 
 | Endpoints            | Request Type  | Parameters  |
-| -------------        |:-------------:| -----:      |
+| -------------        |:-------------:|:-------------:      |
 | /api/v1/register     | POST          |username, email, paasword|
 | /api/v1/token        | POST          |email,password|
 | /api/v1/token/refresh| POST          |refresh token|
