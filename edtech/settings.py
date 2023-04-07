@@ -19,7 +19,7 @@ dotenv.load_dotenv()
 BASE_DIR = Path(__file__).resolve().parent.parent
 PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
 STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
-ALLOWED_HOSTS = ["https://hackathon-app-ixqc.onrender.com"]
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
@@ -29,7 +29,7 @@ SECRET_KEY = "django-insecure-deb*1&qqit1x+wdqn4pwv)s&yyeei+!pf_*z5axyik_8s^n_65
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 REST_USE_JWT = True
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["https://hackathon-app-ixqc.onrender.com"]
 LOGIN_REDIRECT_URL = 'http://localhost:8000/api/v1'
 
 AUTH_USER_MODEL = "hackathon.User"
