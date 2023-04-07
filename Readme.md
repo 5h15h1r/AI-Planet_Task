@@ -20,9 +20,7 @@
 6. Users should be able to view their submissions in the hackathon they were enrolled in.
 
 ## Endpoints
-1. /api/v1/register - POST request to register User
-2. /api/v1/token - Get Token
-3. /api/v1/token/refresh /
+
 
 | Endpoints            | Request Type  | Parameters  |
 | -------------        |:-------------:|:-------------:      |
