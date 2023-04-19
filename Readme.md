@@ -37,7 +37,7 @@
 ## Problem Statement
  The hackathon oraganiser can provide different options, but now the User has the option to choose from different type of submission while submitting
 
-# Solution
+## Solution
 ```
 class SubmissionType(models.Model):
     name = models.CharField(max_length=50)
