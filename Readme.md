@@ -38,6 +38,7 @@
  The hackathon oraganiser can provide different options, but now the User has the option to choose from different type of submission while submitting
 
 # Solution
+```
 class SubmissionType(models.Model):
     name = models.CharField(max_length=50)
 
@@ -66,4 +67,4 @@ class Submission(models.Model):
     fileSubmission = models.FileField(upload_to='hackathon/submissions/',null=True,validators=[FileExtensionValidator(['pdf'])]) 
     imageSubmission = models.ImageField(upload_to='hackathon/submissions/images',null=True,validators=[FileExtensionValidator(['png', 'jpeg', 'jpg', 'svg'])]) 
     urlSubmission = models.URLField(null=True,validators=[URLValidator()])
-
+```
