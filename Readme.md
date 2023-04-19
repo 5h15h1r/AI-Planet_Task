@@ -33,3 +33,37 @@
 | /api/v1/enrolled     | GET           |NA|
 | /api/v1/submission/<int:pk>| POST    |name,summary,submission|
 | /api/v1/getsubmission| GET           |NA|
+
+## Problem Statement
+ The hackathon oraganiser can provide different options, but now the User has the option to choose from different type of submission while submitting
+
+# Solution
+class SubmissionType(models.Model):
+    name = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.name
+
+class Hackathon(models.Model):
+    title = models.CharField(max_length=100, null=True) 
+    description = models.CharField(max_length=500, null=True)
+    hackathonImage = models.ImageField(upload_to='images')
+    start = models.DateField()
+    end = models.DateField()
+    reward = models.CharField(max_length=100, null=True)
+    participants = models.ManyToManyField(User, related_name="hackathons", blank=True)
+    submission_types = models.ManyToManyField(SubmissionType, related_name="hackathons", blank=True)
+
+    def __str__(self):
+        return self.title
+
+class Submission(models.Model):
+    name = models.CharField(max_length=50, null=True)
+    summary = models.CharField(max_length=300, null=True)
+    participant = models.ForeignKey(User, null=True, on_delete=models.SET_NULL)
+    hackathon = models.ForeignKey(Hackathon, null=True, on_delete=models.SET_NULL)
+    submission_type = models.ForeignKey(SubmissionType, null=True, on_delete=models.SET_NULL)
+    fileSubmission = models.FileField(upload_to='hackathon/submissions/',null=True,validators=[FileExtensionValidator(['pdf'])]) 
+    imageSubmission = models.ImageField(upload_to='hackathon/submissions/images',null=True,validators=[FileExtensionValidator(['png', 'jpeg', 'jpg', 'svg'])]) 
+    urlSubmission = models.URLField(null=True,validators=[URLValidator()])
+
